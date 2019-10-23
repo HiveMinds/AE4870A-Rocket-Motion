@@ -9,7 +9,7 @@
  top=15mm,
  }
 \usepackage{amsmath}
-\usepackage{cleveref} %cleverref needs to stand below amsmath package.
+%\usepackage{cleveref} %cleverref needs to stand below amsmath package.
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{url} %To be able to use url in references
@@ -17,7 +17,8 @@
 \usepackage{tabularx} % in the preamble
 \usepackage{wrapfig}
 \usepackage{lipsum}  %use filler
-
+\usepackage{gensymb }
+\usepackage{hyperref}
 %%%%%%%%%%%%%% User defined packages%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{
@@ -26,18 +27,18 @@
   	\large Exam Source:Old Course \\
   	\large Exam Date: 2014-10-28 }
 \author{Author:\\collaborative effort}
-\date{06-09-2019}
+\date{\today}
 \begin{document}
 \maketitle
 %\setcounter{chapter}{-1} 
-\input{Chapters/introduction.tex} 
+%\input{Chapters/introduction.tex} 
 \input{Chapters/chap1.tex}
 \input{Chapters/chap2.tex}
 \input{Chapters/chap3.tex}
 \input{Chapters/chap4.tex}
- \input{Chapters/conclusion.tex} \newpage
+% \input{Chapters/conclusion.tex} \newpage
 
 \bibliographystyle{plain} %plain style
-\bibliography{references}
-\addcontentsline{toc}{chapter}{Bibliography}
+%\bibliography{references}
+%\addcontentsline{toc}{chapter}{Bibliography}
 \end{document}

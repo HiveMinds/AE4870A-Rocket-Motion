@@ -1,1 +1,73 @@
 \section{ Multi stage rockets:mass. construction mass. V-e.id }\label{sec:q2}    
+\textit{In this question we consider the launch of a $M_0 = 2,000 kg$ payload with a multi-stage rocket (N =3, number of stages). Consider the case that all three stages are identical, i.e., the effective exhaust velocity per stage is ceff = 3.2 km/s and the construction-mass ratio per stage is "$\epsilon$= 0.1. The required characteristic velocity to reach orbit is Ve,id = 12 km/s. Note: always state the used equations (without derivation).}
+
+
+
+\subsection{(a)5 points. What is the total mass of the rocket?} 
+
+From the slide 5.24 (velocity increment needed for a multi-stage rocket with identical stages):
+
+\begin{equation}
+	\lambda_{TOT}= \left( \frac{e^\frac{(-v_e)}{Nc_{eff}}-\epsilon}{1-\epsilon}\right)^{N} = 
+	\left( \frac{e^\frac{(-12)}{3\times 3.2}-0.1}{1-0.1}\right)^{N} = 8.899\times 10^{-3} 
+	\tag{SLIDE 5.24}
+\end{equation}
+
+The payload ratio for each stage:
+
+\begin{equation}
+\lambda_{i} = \lambda_{TOT}^{1/N} = 0.2072
+\end{equation}
+
+From the definition of total payload ratio: 
+
+\begin{equation}
+\lambda_{TOT} = \frac{M_u}{M_0} \ \ \ M_0 = \frac{M_u}{\lambda_{TOT}} = 224.743 t
+\end{equation}
+
+\subsection{(b) 20 points. Calculate for each of the stages, the construction massMc and the propellant mass Mp.}
+
+From the definition of payload ratio: 
+
+\begin{equation}
+\lambda_{i} =\left. \frac{M_u}{M_0} \right\|_i =  \frac{M_{0, i+1}}{M_{0, i}}
+\end{equation}
+
+Thus, the payload mass for each stage is:
+
+\begin{align}
+M_{u,1} &= M_{0,2} =  0.2072\times 224.743 t = 46.566 t \\
+M_{u,2} &= M_{0,3} = 0.2072\times 46.566 t = 9,648.66 kg \\
+M_{u,3} &=  0.2072\times 9,648.66 kg = 2,000 kg 
+\end{align}
+
+Taking into acount that, for every stage, it holds the following relations:
+
+\begin{align}
+M_0 = M_u + M_c + M_p \ \ \ M_c + M_p = M_o - M_u,
+\end{align}
+
+we have a way to compute the sum of the construction and fuel masses. If we also consider the construction-mass ratio definition:
+
+\begin{equation}
+\epsilon = \frac{M_c}{M_c + M_p} \ \ \ M_c = \epsilon(M_c + M_p),
+\end{equation}
+as we now the ratio $r$, we can compute the construction and fuel mass in every step. The solution is given in the following table: 
+\begin{table}[H]
+	\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline 
+	Stage & M0 & Mu & M0-Mu & Mc & Mp \\ 
+	\hline 
+	1 & 224,743.69 & 46,566.89 & 178,176.80 & 17,817.68 & 160,359.12 \\
+	2 & 46,566.89  & 9,648.66  & 36,918.23  & 3,691.82  & 33,226.41  \\
+	3 & 9,648.66   & 2,000.00  & 7,648.66   & 764.87    & 6,883.79 \\
+	\hline 
+\end{tabular} 
+\end{table}
+
+\subsection{(c) 5 points. If we increase the payload mass and add boosters to the first stage, what can you say in general over the contribution to Ve,id per stage?}
+
+SLIDES 6.29 Same problem, with even the same numbers... 
+
+If we add boosters, the deltaV of the first stage will increase, while the deltaV of the other two stages will decrease. 
