@@ -1,1 +1,190 @@
 \section{ Multi stage rockets:EOM vertical flight. mass.accel. multistage.V(Height) }\label{sec:q2}    
+\subsection*{a}
+Equation of motion is
+\begin{equation}
+    M \frac{dV}{dt} = T - Mg_0
+\end{equation}
+\begin{equation}
+\begin{split}
+    \frac{dV}{dt} &= \frac{T}{M} - g_0 \\
+    dV &= \frac{T}{M} dt - g_0 dt \\
+    &= -\frac{1}{\dot{m}}\frac{T}{M} dM - g_0 dt \\
+    &= -\frac{c}{T}\frac{T}{M} dM - g_0 dt \\
+    V_e - V_0 &= -c \int_{M_0}^{M_e} \frac{1}{M} dM - \int_{0}^{t_b} g_0 dt \\
+    V_e &= c \ln{\frac{M_0}{M_e}} - g_0 t \\
+    &= c \ln{\Lambda} - g_0 t
+\end{split}
+\end{equation}
+
+With constant thrust, that means the mass flow is constant:
+
+\begin{equation}
+    \begin{split}
+        \dot{m} &= -\frac{M_0 - M}{t} \\
+        M &= M_0 - \dot{m} t \\
+        t_b &= (M_0 - M_e) \frac{c}{T} \\
+        &= (M_0 - M_e) \frac{c}{\Psi_0 g_0 M_0} \\
+        &= \frac{c}{\Psi_0 g_0} (1 - \frac{1}{\Lambda})
+    \end{split}
+\end{equation}
+
+Thus, 
+\begin{equation}
+    \begin{split}
+        V_e = c \ln{\Lambda} - \frac{c}{\Psi_0} (1 - \frac{1}{\Lambda})
+    \end{split}
+\end{equation}
+
+Next, we derive $Z_e$:
+
+\begin{equation}
+\begin{split}
+    \frac{dZ}{dt} &= V_z = V \\
+    Z_e - Z_0 &= c\frac{1}{\dot{m}} \int_{M_0}^{M_e} \ln{\frac{M_0}{M}} dM - \frac{1}{2}g_0 t^2 \\
+    Z_e  &= c \frac{c}{T} \int_{M_0}^{M_e} \ln{\frac{M}{M_0}} dM - \frac{1}{2}g_0 t^2 \\
+    Z_e  &=  \frac{c^2}{\Psi_0 M_0 g_0} \int_{M_0}^{M_e} \ln{\frac{M}{M_0}} dM - \frac{1}{2}g_0 t^2 \\
+\end{split}
+\end{equation}
+
+We use $x = M/M_0$, where $dx = dM/M_0$
+
+\begin{equation}
+    \begin{split}
+        Z_e  &= \frac{c^2}{\Psi_0 M_0 g_0} \int_{1}^{M_e/M_0} M_0 \ln{x} dx - \frac{1}{2}g_0 t^2 \\
+        &= \frac{c^2}{\Psi_0 M_0 g_0} M_0 [(\frac{M_e}{M_0} \ln{\frac{M_e}{M_0}} - \frac{M_e}{M_0}) -(1 \ln{1} - 1) ] - \frac{1}{2}g_0 t^2 \\
+        &= \frac{c^2}{\Psi_0 g_0} (\frac{1}{\Lambda} \ln{\frac{1}{\Lambda}} - \frac{1}{\Lambda} + 1)- \frac{1}{2}g_0 t^2 \\
+        &= \frac{c^2}{\Psi_0 g_0} (\frac{1}{\Lambda} \ln{\frac{1}{\Lambda}} - \frac{1}{\Lambda} + 1) - \frac{1}{2} \frac{c^2}{\Psi_0^2 g_0} (1 - \frac{1}{\Lambda})^2 \\ &= 
+        \frac{c^2}{\Psi_0 g_0}(1-\frac{1}{\Lambda} (\ln{\Lambda} +1)) - \frac{1}{2} \frac{c^2}{\Psi_0^2 g_0} (1 - \frac{1}{\Lambda})^2
+    \end{split}
+\end{equation}
+
+\subsection*{b}
+
+\begin{equation}
+\begin{split}
+    T_{c} &= \dot{m} c = \dot{m}I_{sp}g_0 \\
+    3000000 &= \dot{m} 300 * 9.81 \\
+    \dot{m}_c &= 3000000/(300*9.81) = 1019.368 kg/s
+ \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        M_e &= M_0  - \dot{m}_c t \\
+        400000 &= M_0 - 1019.368 \times 200 \\
+        M_0_c &= 40000+1019.368\times 200 \\
+        &= 243873.6
+    \end{split}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+    M_0 = M_0_c + 3M_0_b = 243873.6 + 3 \times 36000 = 351873.6 kg
+\end{equation}
+
+\subsection*{c}
+
+Acceleration of rocket at instant of lift-off 
+\begin{equation}
+\begin{split}
+    \frac{dV}{dt} &= \frac{T}{M_0} - g_0 \\
+    &= \frac{T_c + 3T_b}{M_0} - g_0 \\
+    &= \frac{3000+3\times 1000}{351873.6} \times 10^3 - 9.81 \\
+    &= 7.2415776 m/s^2
+\end{split}
+\end{equation}
+
+Acceleration of rocket after jettisoning booster
+\begin{equation}
+    \begin{split}
+        \frac{dV}{dt} &= \frac{T}{M_0-3M_b} - g_0 \\
+        &= \frac{3000*10^3}{351873.6-3\times 36000} - 9.81 \\
+        &= 2.4914545 m/s^2
+    \end{split}
+\end{equation}
+
+Acceleration of rocket at burnout:
+\begin{equation}
+    \frac{dV}{dt} =  - g_0 = -9.81 m/s^2
+\end{equation}
+
+\subsection*{d}
+First compute $c_{eff}$:
+\begin{equation}
+\begin{split}
+    c_{eff} &= \frac{T_c + 3T_b}{\dot{m}_c + 3 \dot{m}_c} \\
+    &= \frac{T_c + 3T_b}{\frac{T_c}{I_{sp}_c g_0} + 3 \frac{T_c}{I_{sp}_b g_0}} \\
+    &= \frac{3000000+3\times 1000000}{\frac{3000000}{300\times9.81} + 3 \frac{1000000}{200 \times 9.81}} \\ &=
+    \frac{6000000}{1019.368+3\times509.683996} = 2354.399992
+\end{split}
+\end{equation}
+
+We have $\Lambda = M_0/M_e = \frac{351873.6}{351873.6 - 3 \times 36000}=1.44285236$
+
+\begin{equation}
+    \begin{split}
+        V_e &= c_{eff} \ln{\frac{M_0}{M_e}} - g_0 t \\
+        &= 2354.39999 \ln{\frac{351873.6}{351873.6 - 3 \times 36000}} - 9.81 \times 60 \\
+        &= 274.57474 m/s
+    \end{split}
+\end{equation}
+
+We then compute $Z_e$
+
+\begin{equation}
+    \begin{split}
+        Z_e  &= \frac{c^2}{\Psi_0 g_0} (\frac{1}{\Lambda} \ln{\frac{1}{\Lambda}} - \frac{1}{\Lambda} + 1)- \frac{1}{2}g_0 t^2 \\
+        &= \frac{c^2 M_0}{T} (\frac{1}{\Lambda} \ln{\frac{1}{\Lambda}} - \frac{1}{\Lambda} + 1)- \frac{1}{2}g_0 t^2 \\
+        &= \frac{2354.39999^2 \times 351873.6}{6000000}(\frac{1}{1.44285236} \ln{\frac{1}{1.44285236}} - \frac{1}{1.44285236} + 1) - 0.5 \times 9.81 \times 60^2 \\
+        &= 482.78298 m
+    \end{split}
+\end{equation}
+
+\subsection*{e}
+
+Mass after booster burnout $M_0 = 351873.6 - 3 \times 36000 = 243873.6$, $M_e = 40000$, $V_0 = 274.57474$
+
+\begin{equation}
+    \begin{split}
+        V_e &= V_0 + c_{c} \ln{\frac{M_0}{M_e}} - g_0 t \\
+        &= 274.57474 + 300 \times 9.81 \ln{\frac{243873.6}{40000}} - 9.81 \times 140 \\
+        &=  4221.4436 m/s
+    \end{split}
+\end{equation}
+
+With $Z_0 = 164721.957355$
+
+\begin{equation}
+    \begin{split}
+        Z_e  
+        &= Z_0 -\frac{c^2 M_0}{T} (\frac{1}{\Lambda} \ln{\frac{1}{\Lambda}} - \frac{1}{\Lambda} + 1)- \frac{1}{2}g_0 t^2 \\
+        &= 482.78298 +  \frac{(300\times 9.81)^2 \times 243873.6}{3000000}(\frac{40000}{243873.6} \ln{\frac{40000}{243873.6}} - \frac{40000}{243873.6} + 1) - 0.5 \times 9.81 \times 140^2 \\
+        &= 284177.4365 m
+    \end{split}
+\end{equation}
+
+\subsection*{f}
+
+First get the culmination time:
+
+\begin{equation}
+    \begin{split}
+        \frac{dV}{dt} &= -g_0  \\
+        dV = &= -g_0 dt \\
+        V_c - V_e &= -g_0(t_c - t_e) \\
+        0 - 4221.4436 &= -9.81(t_c - 200) \\
+        t_c &= 630.320449
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \frac{dZ}{dt} &= V \\
+        \frac{dZ}{dt} &= V_e + -g_0t \\
+        Z_c - Z_e &= V_e(t_c - t_e) -\frac{1}{2}g_0(t_c - t_e)^2 \\
+        Z_c &= 284177.4365 + 4221.4436(630.320449-200) -0.5\times 9.81 \times (630.320449-200)^2 \\
+        &= 1192464.18818 m
+    \end{split}
+\end{equation}
+

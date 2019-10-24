@@ -1,1 +1,75 @@
 \section{ Balistic flight over earth:Spherical. gamma-0.psi-0.derive }\label{sec:q4}    
+
+\section*{a}
+
+See LTR7 pg 27,28
+
+\section*{b}
+
+$d = 8500$ km. $\gamma_0_1 = 7.2\deg$. $\gamma_0_2 = 44.6\deg$
+
+\begin{equation}
+\begin{split}
+    d &= R_e \Psi \\
+    8500 &= 6378 \Psi \\
+    \Psi &= 0.7503529411 = 42.992 \deg
+\end{split}
+\end{equation}
+
+\section*{c}
+
+See LTR8 pg 21-28
+
+\section*{d}
+
+For $\gamma_0_1 = 7.2\deg$:
+
+\begin{equation}
+    \begin{split}
+        \Delta d = 2 R_e [\frac{\partial \Psi }{\partial V_0} \Delta V_0 + \frac{\partial \Psi}{\partial \gamma_0} \Delta \gamma_0] 
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial \Psi }{\partial V_0} \Delta V_0 &= \frac{4}{V_0} \frac{\sin^2(42.992)}{S_0^2 \sin(2\times 7.2 \deg)} \times 0.002\\
+        &= 0.01607979735 \frac{1}{V_0 S_0^2}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+    \frac{\partial \Psi}{\partial \gamma_0} \Delta \gamma_0 &= (\frac{\sin(42.992+7.2)}{\sin(2\times 7.2 deg)} - 1) \times 0.1 \deg \\
+    &= 0.20889641259
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \Delta d = 2 R_e [0.01607979735 \frac{1}{V_0 S_0^2} + 0.20889641259] 
+    \end{split}
+\end{equation}
+
+For $\gamma_0_2 = 44.6\deg$
+
+\begin{equation}
+    \begin{split}
+        \frac{\partial \Psi }{\partial V_0} \Delta V_0 &= \frac{4}{V_0} \frac{\sin^2(42.992)}{S_0^2 \sin(2\times 44.6 \deg)} \times 0.002\\
+        &= 0.00372022246 \frac{1}{V_0 S_0^2}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+    \frac{\partial \Psi}{\partial \gamma_0} \Delta \gamma_0 &= (\frac{\sin(42.992+44.6)}{\sin(2\times 44.6 deg)} - 1) \times 0.1 \deg \\
+    &= -7.85627174 \times 10^{-5}
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        \Delta d = 2 R_e [0.00372022246 \frac{1}{V_0 S_0^2} -7.85627174\times 10^{-5}] 
+    \end{split}
+\end{equation}
+
+We can see that the high trajectory gives lower range error.
