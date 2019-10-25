@@ -1,1 +1,92 @@
 \section{ Launch Trajectories:mass.V-burnout.V(height) }\label{sec:q2}    
+
+\begin{enumerate}[label=(\alph*)]
+\item
+For Stage 1, given:\\
+$ I_{sp_{1}} = 269 \: s $\\
+$ T_1 = 6800 \: kN $\\
+$ g_0=9.81 \: m/s^2 $\\
+$ M_{0_1} = 2709000 \: kg$
+$ \varepsilon = 0.080	$
+$$ \psi_{0_{1}} = \frac{T_1}{M_{0_1}g_0} = 0.256 $$
+$$ t_{b_1} = \frac{I_{sp_1}}{\psi_{0_1}}\left(1-\frac{1}{\Lambda_1}\right) \Rightarrow \Lambda_1 = \frac{1}{1-\frac{\psi_{0_1}t_{b_1}}{I_{sp_1}}} = 1.169 $$
+$$\phi_1 = 1-\frac{1}{\Lambda_1} = 0.146$$
+$$ \lambda = 1-\frac{\phi}{1-\varepsilon} = 0.855$$
+$$ M_{e_1} = \frac{M_{0_1}}{\Lambda_1} = 2317320.168 \: kg$$
+For Stage 2, given:\\
+$ I_{sp_{2}} = 389 \: s $\\
+$ T_2 = 890 \: kN $\\
+$ t_{b_2} = 365 \: s$\\
+$ M_{0_2} = M_{e_1} = 2317320.168 \: kg$\\
+$ \lambda_2 = 0.180$
+$$ \psi_{0_{2}} = \frac{T_2}{M_{0_2}g_0} = 0.039 $$
+$$ \Lambda_2 = \frac{1}{1-\frac{\psi_{0_2}t_{b_2}}{I_{sp_2}}} = 1.038$$
+$$ \phi_2 = 1-\frac{1}{\Lambda_2} = 0.037$$
+$$ \varepsilon_2 = 1-\frac{\phi_2}{1-\lambda_2} = 0.955$$
+$$ M_{e_2} = \frac{M_{0_2}}{\Lambda_2} = 2232485.711 \: kg$$
+$$ Mass\: of\: Payload \qquad M_{u} = \lambda_2 M_{0_2} = 417117.630 \: kg$$
+After stage 2, the mass of rocket ($M_{0_3}=M_{e_2}$) is composed of the construction mass, payload mass, and the mass of propellant in the tanker. Given $\varepsilon_3=0.040$, the construction mass $M_{c_3}=\varepsilon_3 M_{0_3} = 89299.428$.
+Therefore, the mass of propellant in the tanker unit is
+$$  M_{p_3}= M_{0_3}-M_{c_3}-M_{u}=1726068.653 \: kg$$
+
+\item
+\textbf{Burnout Velocity of single stage rocket}
+Two forces act on the rocket - Thrust ($T$) due to the propulsion system, and gravitational force ($Mg_0$). Therefore, acceleration of the rocket can be given by the expression
+$$ a = \frac{T}{M}-g_0$$ 
+We know that $T=mc_{eff}$ and $m=-\frac{dM}{dt}$. Hence, the burnout velocity of the rocket can be found out in the following way.
+$$ \frac{dV}{dt} = \frac{T}{M}-g_0 = -\frac{c_{eff}}{M}\frac{dM}{dt}-g_0$$
+$$\Rightarrow \int^{V_e}_{V_0}dV=-\int^{M_e}_{M_0}\frac{c_{eff}}{M}dM-\int^{t_b}_{t_0}g_0dt$$
+$$ \Rightarrow V_e = V_0 +c_{eff}ln\left(\frac{M_0}{M_e}\right)-g_0t_b$$
+$$\Rightarrow V_e = V_0 +c_{eff}ln\Lambda-g_0t_b$$
+
+We know that $dT=-dM/m$. The burnout height of the rocket can be found in the following way.
+$$ h_b = \int_{t_0}^{t_b} Vdt = \int_{t_0}^{t_b}\left( c_{eff}ln\left(\frac{M_0}{M}\right)-g_0t\right)dt$$
+$$\hspace{3.5cm}=-\int_{M_0}^{M_e} \frac{c_{eff}^2}{T}ln\left(\frac{M_0}{M}\right)dM-\int_{t_0}^{t_b}g_0dt$$
+$$\hspace{5cm}=\frac{c_{eff}^2}{T}\left[M_eln\left(\frac{M_0}{M_e}\right)+M_e-M_0\right]-g_0(t_b-t_0)^2$$
+$$h_b = \frac{c_{eff}}{\psi_0g_0}\left[1-\frac{1}{\Lambda}\left(1+ln\Lambda\right)\right]-g_0(t_b-t_0)^2$$
+
+\item
+Calculation of $c_{eff}$ for the 2 stages.
+$$c_{eff_1} = I_{sp_1}g_0 = 2638.89 \:m/s$$
+$$c_{eff_2} = I_{sp_2}g_0 = 3816.09 \:m/s$$
+Ideal velocity
+$$V_{{e_1}_{id}} = c_{eff_1}ln\Lambda_1 = 412.059 \: m/s$$
+$$V_{{e_2}_{id}} = V_{{e_1}_id}+ c_{eff_2}ln\Lambda_2 = 554.383 \: m/s$$ 
+Including the effect of homogenous fravitational field, the velocities at the end of each stage are given by
+$$V_{e_1} = c_{eff_1}ln\Lambda_1-g_0t_{b_1} = -1079.060 \: m/s$$
+$$V_c - V_{e_1}-g_0t_c=-1098.680 \: m/s$$
+$$V_{e_2} = V_{c} + c_{eff_2}ln\Lambda_2-g_0t_{b_2}=-4537.008 \: m/s$$
+The calculated velocities after are negative. Therefore, there is no culmination height for the problem as the the rocket doesn't rise at all. Hence, as a consultant, I have bad news for Space $X^2$ that the rocket cannot deliver the heavy tanker unit payload into LEO.
+
+\item
+For each booster,
+$T_b=5600\: kN$\\
+$t_{b_b}=130 \: s$\\
+$M_{c_b}=30000 \: kg$\\
+$M_{p_b}=237000\: kg$\\
+With 4 boosters, the initial mass of rocket is
+$$M_{b_0}=M_0+4(M_{c_b}+M_{p_b})=3777000\: kg$$
+Mass flow rate per booster
+$$m_b=M_{p_b}/t_{b_b}=1823.077$$
+Mass flow rate in stage 1
+$$m_1 = T_1/c_{eff} = 2576.841 \: kg/s$$
+The equation for the ideal velocity for the rocket with boosters for the first 30 seconds.
+$$\frac{dV}{dt}=\frac{T_1+4T_b}{M}$$
+where $M=M_{b_0}-(m_1+4m_b)t$.
+Therefore, the ideal velocity after first 130 seconds can be calculated as
+$$V_{e_{b_{id}}} = \int^{t_b}_0 \frac{T_1+4T_b}{M_{b_0}-(m_1+4m_b)t}dt$$
+$$\Rightarrow V_{e1_{b_{id}}} = -\frac{T_1+4T_b}{m_1+4m_b}ln\left(1-\frac{m_1+4m_b}{M_{b_0}}t_{b_b}\right)=1227.979\: m/s$$
+The mass of the rocket after the boosters are jettisoned
+$$M_{0_1b}=M_{0_1}-m_1t_{b_b}=2374010.67\: kg$$
+Ideal velocity after stage 1
+$$V_{e1_{b_{id}}}=V_{e_{b_{id}}}+c_{eff_1}ln\frac{M_{0_1b}}{M_{e_1}}=1291.759\: m/s$$
+The ideal velocity after the second stage can be calculated by
+$$V_{e2_{b_{id}}} = V_{e1_{b_{id}}}+c_{eff_2}ln\Lambda_2 = 1434.083\: m/s$$
+The gain in ideal velocity due to boosters is $V_{e2_{b_{id}}}-V_{{e_2}_{id}}=879.700\: m/s$
+
+The velocity gained with the help of the boosters is very less compared to the required ideal velocity of $9200\: m/s$. To reach such an ideal velocity, more than 8 such boosters or more poweful ones than this are required.
+
+\item
+Total cost of the mission is $20+25+20+4\times25=165\: million\: dollars$. If there is $100,000\: kg$ of propellant in tanker, then the orbit propellant cost would be $165000000\: dollars/100,000\:kg=1650\: dollars/kg$. In case 9 boosters were used, the cost would be $2650\: dollars/kg$. This cost is within the range of the present day values, and thus the company can have a profitable future.
+
+\end{enumerate}
